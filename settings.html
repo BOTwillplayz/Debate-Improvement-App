@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debate Tracker · Settings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=IBM+Plex+Mono:wght@400;600&family=Manrope:wght@400;600;700&family=Quicksand:wght@400;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="site.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <p class="kicker">Settings</p>
+        <h1>Layout Editor</h1>
+        <p>Theme presets, detailed visual controls, and data management tools.</p>
+      </header>
+      <nav id="topNav"></nav>
+
+      <main class="page">
+        <section class="card">
+          <h2>Preset Themes</h2>
+          <form id="presetForm" class="button-row">
+            <label style="min-width:260px">
+              Preset
+              <select id="themePreset"></select>
+            </label>
+            <button type="submit">Apply Preset</button>
+          </form>
+        </section>
+
+        <section class="card">
+          <h2>Custom Layout & Theme</h2>
+          <form id="customThemeForm" class="grid cols-3">
+            <label>Background<input id="bgColor" type="color" /></label>
+            <label>Surface<input id="surfaceColor" type="color" /></label>
+            <label>Text<input id="textColor" type="color" /></label>
+            <label>Accent<input id="accentColor" type="color" /></label>
+            <label>Muted<input id="mutedColor" type="color" /></label>
+            <label>Border<input id="borderColor" type="color" /></label>
+            <label>Card radius (6-24 px)<input id="radius" type="range" min="6" max="24" step="1" /></label>
+            <label>Content width (900-1320 px)<input id="width" type="range" min="900" max="1320" step="10" /></label>
+            <label>Spacing density (0.8-1.3)<input id="space" type="range" min="0.8" max="1.3" step="0.05" /></label>
+            <label>Body font
+              <select id="bodyFont">
+                <option>Manrope</option>
+                <option>Quicksand</option>
+                <option>Courier Prime</option>
+              </select>
+            </label>
+            <label>Heading font
+              <select id="headingFont">
+                <option>Space Grotesk</option>
+                <option>Quicksand</option>
+                <option>Courier Prime</option>
+                <option>Manrope</option>
+              </select>
+            </label>
+            <div class="button-row" style="align-self:end">
+              <button type="submit">Save Custom Theme</button>
+              <button type="button" class="subtle" id="resetPreview">Reset Preview</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="card">
+          <h2>Data Tools</h2>
+          <div class="button-row">
+            <button id="exportBtn" type="button">Export Backup</button>
+            <label class="subtle" style="display:inline-flex;align-items:center;justify-content:center;padding:0.58rem 0.9rem;border-radius:10px;border:1px solid var(--border);cursor:pointer;">
+              Import Backup
+              <input id="importInput" type="file" accept="application/json" style="display:none" />
+            </label>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="toastHost" class="toast-host" aria-live="polite"></div>
+    <script type="module" src="js/settings.js?v=20260215-2"></script>
+  </body>
+</html>

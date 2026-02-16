@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debate Tracker · Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=IBM+Plex+Mono:wght@400;600&family=Manrope:wght@400;600;700&family=Quicksand:wght@400;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="site.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <p class="kicker">WSDC Training</p>
+        <h1>Debate Tracker</h1>
+        <p>A cleaner workspace for prep files, speeches, skill growth, and round evaluation.</p>
+      </header>
+      <nav id="topNav"></nav>
+
+      <main class="page">
+        <section class="grid cols-4" id="stats"></section>
+        <section class="card">
+          <h2>Performance Pulse</h2>
+          <p id="insight"></p>
+        </section>
+        <section class="card">
+          <h2>Recent Rounds</h2>
+          <div id="recent" class="list"></div>
+        </section>
+      </main>
+    </div>
+
+    <div id="toastHost" class="toast-host" aria-live="polite"></div>
+    <script type="module" src="js/index.js?v=20260215-2"></script>
+  </body>
+</html>

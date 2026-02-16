@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debate Tracker · Resources</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=IBM+Plex+Mono:wght@400;600&family=Manrope:wght@400;600;700&family=Quicksand:wght@400;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="site.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <p class="kicker">Resources</p>
+        <h1>Prep Files & Drive Import</h1>
+        <p>Manual upload and direct Google Drive ingestion with folder tree browsing.</p>
+      </header>
+      <nav id="topNav"></nav>
+
+      <main class="page">
+        <section class="grid cols-2">
+          <article class="card">
+            <h2>Add Local Resource</h2>
+            <form id="resourceForm" class="grid cols-2">
+              <label>
+                Title
+                <input type="text" name="title" required maxlength="140" />
+              </label>
+              <label>
+                Category
+                <select name="category" required>
+                  <option value="">Select</option>
+                  <option>Motion Analysis</option>
+                  <option>Casefile</option>
+                  <option>Research</option>
+                  <option>Strategy</option>
+                  <option>Other</option>
+                </select>
+              </label>
+              <label class="span-2">
+                File
+                <input type="file" name="file" required />
+              </label>
+              <button type="submit">Save Resource</button>
+            </form>
+          </article>
+
+          <article class="card">
+            <h2>Google Drive Sync</h2>
+            <form id="driveForm" class="grid cols-2">
+              <label class="span-2">
+                Google OAuth Client ID
+                <input id="driveClientId" type="text" placeholder="xxxx.apps.googleusercontent.com" required />
+              </label>
+              <label class="span-2">
+                Drive Folder Link/ID
+                <input id="driveFolder" type="text" placeholder="https://drive.google.com/drive/folders/..." required />
+              </label>
+              <button type="button" class="subtle" id="driveConnectBtn">Connect Google</button>
+              <button type="submit">Import/Update Folder</button>
+            </form>
+            <p class="meta" id="driveStatus">Not connected.</p>
+          </article>
+        </section>
+
+        <section class="card">
+          <h2>Local Resource Library</h2>
+          <div class="grid cols-4">
+            <label>
+              Search
+              <input id="resourceSearch" type="search" placeholder="title or file" />
+            </label>
+            <label>
+              Category
+              <select id="resourceCategory">
+                <option value="">All</option>
+                <option>Motion Analysis</option>
+                <option>Casefile</option>
+                <option>Research</option>
+                <option>Strategy</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label>
+              Sort
+              <select id="resourceSort">
+                <option value="newest">Newest</option>
+                <option value="oldest">Oldest</option>
+                <option value="titleAsc">Title A-Z</option>
+                <option value="titleDesc">Title Z-A</option>
+              </select>
+            </label>
+            <label>
+              Drive Tree Sort
+              <select id="driveSort">
+                <option value="nameAsc">Name A-Z</option>
+                <option value="nameDesc">Name Z-A</option>
+                <option value="pathAsc">Path A-Z</option>
+                <option value="pathDesc">Path Z-A</option>
+                <option value="modNewest">Modified Newest</option>
+                <option value="modOldest">Modified Oldest</option>
+              </select>
+            </label>
+          </div>
+          <div id="resourceList" class="list" style="margin-top:0.7rem"></div>
+        </section>
+
+        <section class="card">
+          <h2>Google Drive Tree</h2>
+          <div id="driveTree" class="tree"></div>
+        </section>
+      </main>
+    </div>
+
+    <div id="toastHost" class="toast-host" aria-live="polite"></div>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script type="module" src="js/resources.js?v=20260215-2"></script>
+  </body>
+</html>

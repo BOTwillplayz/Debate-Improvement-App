@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debate Tracker · Skills</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=IBM+Plex+Mono:wght@400;600&family=Manrope:wght@400;600;700&family=Quicksand:wght@400;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="site.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <p class="kicker">Skills</p>
+        <h1>Skill Tracker</h1>
+        <p>Score key debating skills and monitor your consistency over time.</p>
+      </header>
+      <nav id="topNav"></nav>
+
+      <main class="page">
+        <section class="card">
+          <h2>Log Skill</h2>
+          <form id="skillForm" class="grid cols-2">
+            <label>
+              Skill
+              <select name="skill" required>
+                <option value="">Select</option>
+                <option>Argumentation</option>
+                <option>Rebuttal</option>
+                <option>Weighing</option>
+                <option>Matter</option>
+                <option>Method</option>
+                <option>Manner</option>
+                <option>POIs</option>
+                <option>Extension/Framing</option>
+              </select>
+            </label>
+            <label>
+              Score (1-10)
+              <input type="number" name="score" min="1" max="10" required />
+            </label>
+            <label class="span-2">
+              Target for next sessions
+              <textarea name="target" rows="4" minlength="20" required></textarea>
+            </label>
+            <button type="submit">Add Entry</button>
+          </form>
+        </section>
+
+        <section class="card">
+          <h2>Insights</h2>
+          <div id="skillSummary"></div>
+          <div class="canvas-wrap"><canvas id="skillChart"></canvas></div>
+        </section>
+
+        <section class="card">
+          <h2>Entries</h2>
+          <div id="skillList" class="list"></div>
+        </section>
+      </main>
+    </div>
+
+    <div id="toastHost" class="toast-host" aria-live="polite"></div>
+    <script type="module" src="js/skills.js?v=20260215-2"></script>
+  </body>
+</html>

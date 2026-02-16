@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debate Tracker · Evaluations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=IBM+Plex+Mono:wght@400;600&family=Manrope:wght@400;600;700&family=Quicksand:wght@400;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="site.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <p class="kicker">Evaluations</p>
+        <h1>Round Self-Evaluation</h1>
+        <p>Score content, style, and strategy with subcategories, then lock in concrete improvements.</p>
+      </header>
+      <nav id="topNav"></nav>
+
+      <main class="page">
+        <section class="card">
+          <h2>Log Round</h2>
+          <form id="evalForm" class="grid cols-3">
+            <label>
+              Date
+              <input type="date" name="date" required />
+            </label>
+            <label>
+              Event
+              <input type="text" name="event" required />
+            </label>
+            <label>
+              Motion
+              <input type="text" name="motion" required />
+            </label>
+            <article class="item span-2">
+              <h3>Content</h3>
+              <div class="grid cols-3">
+                <label>
+                  Analysis (1-10)
+                  <input type="number" name="contentAnalysis" min="1" max="10" required />
+                </label>
+                <label>
+                  Evidence (1-10)
+                  <input type="number" name="contentEvidence" min="1" max="10" required />
+                </label>
+                <label>
+                  Clash Engagement (1-10)
+                  <input type="number" name="contentClash" min="1" max="10" required />
+                </label>
+              </div>
+            </article>
+
+            <article class="item span-2">
+              <h3>Style</h3>
+              <div class="grid cols-3">
+                <label>
+                  Clarity (1-10)
+                  <input type="number" name="styleClarity" min="1" max="10" required />
+                </label>
+                <label>
+                  Persuasion (1-10)
+                  <input type="number" name="stylePersuasion" min="1" max="10" required />
+                </label>
+                <label>
+                  Delivery (1-10)
+                  <input type="number" name="styleDelivery" min="1" max="10" required />
+                </label>
+              </div>
+            </article>
+
+            <article class="item span-2">
+              <h3>Strategy</h3>
+              <div class="grid cols-3">
+                <label>
+                  Framing (1-10)
+                  <input type="number" name="strategyFraming" min="1" max="10" required />
+                </label>
+                <label>
+                  Weighing (1-10)
+                  <input type="number" name="strategyWeighing" min="1" max="10" required />
+                </label>
+                <label>
+                  Time Management (1-10)
+                  <input type="number" name="strategyTime" min="1" max="10" required />
+                </label>
+              </div>
+            </article>
+            <label class="span-2">
+              Strength
+              <textarea name="strength" rows="3" minlength="20" required></textarea>
+            </label>
+            <label class="span-2">
+              Weakness
+              <textarea name="weakness" rows="3" minlength="20" required></textarea>
+            </label>
+            <label class="span-2">
+              Next Action
+              <textarea name="action" rows="3" minlength="20" required></textarea>
+            </label>
+            <button type="submit">Save Evaluation</button>
+          </form>
+        </section>
+
+        <section class="card">
+          <h2>Trends</h2>
+          <label>
+            Search
+            <input id="evalSearch" type="search" placeholder="event or motion" />
+          </label>
+          <div id="evalInsight"></div>
+          <div class="canvas-wrap"><canvas id="evalChart"></canvas></div>
+        </section>
+
+        <section class="card">
+          <h2>Logged Rounds</h2>
+          <div id="evalList" class="list"></div>
+        </section>
+      </main>
+    </div>
+
+    <div id="toastHost" class="toast-host" aria-live="polite"></div>
+    <script type="module" src="js/evaluations.js?v=20260215-2"></script>
+  </body>
+</html>

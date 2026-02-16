@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debate Tracker · Speeches</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=IBM+Plex+Mono:wght@400;600&family=Manrope:wght@400;600;700&family=Quicksand:wght@400;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="site.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <p class="kicker">Speeches</p>
+        <h1>Speech Vault</h1>
+        <p>Capture scripts, role context, and post-round reflection in one place.</p>
+      </header>
+      <nav id="topNav"></nav>
+
+      <main class="page">
+        <section class="card">
+          <h2>Add Speech</h2>
+          <form id="speechForm" class="grid cols-2">
+            <label>
+              Motion
+              <input type="text" name="motion" required maxlength="180" />
+            </label>
+            <label>
+              Role
+              <select name="role" required>
+                <option value="">Select</option>
+                <option>Prime Minister</option>
+                <option>Deputy Prime Minister</option>
+                <option>Government Whip</option>
+                <option>Leader of Opposition</option>
+                <option>Deputy Leader of Opposition</option>
+                <option>Opposition Whip</option>
+                <option>Reply Speech</option>
+              </select>
+            </label>
+            <label class="span-2">
+              Speech Text
+              <textarea name="content" rows="7" required minlength="40"></textarea>
+            </label>
+            <label class="span-2">
+              Notes
+              <textarea name="notes" rows="4"></textarea>
+            </label>
+            <label class="span-2">
+              Optional file
+              <input type="file" name="file" />
+            </label>
+            <button type="submit">Save Speech</button>
+          </form>
+        </section>
+
+        <section class="card">
+          <h2>Speech Library</h2>
+          <div class="grid cols-2">
+            <label>
+              Search
+              <input id="speechSearch" type="search" placeholder="motion, notes, content" />
+            </label>
+            <label>
+              Role
+              <select id="speechRole">
+                <option value="">All</option>
+                <option>Prime Minister</option>
+                <option>Deputy Prime Minister</option>
+                <option>Government Whip</option>
+                <option>Leader of Opposition</option>
+                <option>Deputy Leader of Opposition</option>
+                <option>Opposition Whip</option>
+                <option>Reply Speech</option>
+              </select>
+            </label>
+          </div>
+          <div id="speechList" class="list" style="margin-top:0.7rem"></div>
+        </section>
+      </main>
+    </div>
+
+    <div id="toastHost" class="toast-host" aria-live="polite"></div>
+    <script type="module" src="js/speeches.js?v=20260215-2"></script>
+  </body>
+</html>
